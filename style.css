@@ -767,16 +767,19 @@ body.dark-theme .chatbot-input button:hover {
 .typing-message {
     display: flex;
     align-items: center;
-    background: #2a9d8f;
-    color: #fff;
-    margin-left: auto;
+    background: #e6e6e6; /* Match ai-message color */
+    color: #2d3436;       /* Match ai-message text */
+    margin-right: auto;   /* Align to left by default */
     border-radius: 10px;
-    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
     padding: 0.75rem;
     max-width: 80%;
     margin-bottom: 1rem;
     font-size: 0.95rem;
+    direction: ltr;       /* Left to right typing flow */
+    text-align: left;
 }
+
 
 body.dark-theme .typing-message {
     background: #00d2d3;
@@ -1059,3 +1062,21 @@ body.dark-theme .copyright {
 .project-card .project-link {
     cursor: pointer;
 }
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.chatbot-overlay.active {
+    display: flex;
+    animation: slideInFromRight 0.4s ease-out;
+}
+
+
+
